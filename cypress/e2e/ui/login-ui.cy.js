@@ -37,6 +37,17 @@ describe('ServeRest UI - Login', () => {
     cy.location('pathname').should('eq', '/login')
   })
 
+  it('deve exibir mensagem de erro ao tentar login com email invalido', () => {
+    cy.uiVisit('/login')
+
+    cy.getByTestId('email').type('inexistente@qa.com')
+    cy.getByTestId('senha').type('teste')
+    cy.getByTestId('entrar').click()
+
+    cy.contains('Email e/ou senha inválidos').should('be.visible')
+    cy.location('pathname').should('eq', '/login')
+  })
+
   it('deve realizar login com sucesso como administrador', () => {
     cy.uiLoginAsAdmin()
 

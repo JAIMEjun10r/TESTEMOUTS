@@ -53,4 +53,13 @@ describe('ServeRest UI - Admin', () => {
     cy.location('pathname').should('eq', '/login')
     cy.getByTestId('entrar').should('be.visible')
   })
+
+  it('deve bloquear acesso a rota administrativa apos logout', () => {
+    cy.uiLogout()
+    cy.uiVisit('/admin/listarprodutos')
+
+    cy.location('pathname').should('eq', '/login')
+    cy.getByTestId('email').should('be.visible')
+    cy.getByTestId('senha').should('be.visible')
+  })
 })

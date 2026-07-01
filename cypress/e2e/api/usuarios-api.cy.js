@@ -43,4 +43,13 @@ describe('ServeRest API - Usuarios', () => {
       })
     })
   })
+
+  it('deve rejeitar busca de usuario com id invalido', () => {
+    cy.apiGetUserById('id-invalido', {
+      failOnStatusCode: false,
+    }).then(({ status, body }) => {
+      expect(status).to.eq(400)
+      expect(body.id).to.include('16 caracteres alfanum')
+    })
+  })
 })

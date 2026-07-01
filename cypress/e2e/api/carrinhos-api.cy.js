@@ -29,4 +29,13 @@ describe('ServeRest API - Carrinhos', () => {
       expect(body._id).to.eq(defaultCart.id)
     })
   })
+
+  it('deve rejeitar busca de carrinho com id invalido', () => {
+    cy.apiGetCartById('id-invalido', {
+      failOnStatusCode: false,
+    }).then(({ status, body }) => {
+      expect(status).to.eq(400)
+      expect(body.id).to.include('16 caracteres alfanum')
+    })
+  })
 })
