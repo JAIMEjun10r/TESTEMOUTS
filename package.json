@@ -6,9 +6,10 @@
   "scripts": {
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "cy:run:api": "cypress run --spec \"cypress/e2e/api/**/*.cy.js\"",
-    "cy:run:ui": "cypress run --spec \"cypress/e2e/ui/**/*.cy.js\"",
-    "test": "npm run cy:run:api"
+    "cy:run:all": "cypress run --browser electron",
+    "cy:run:api": "cypress run --browser electron --spec \"cypress/e2e/api/**/*.cy.js\"",
+    "cy:run:ui": "cypress run --browser electron --spec \"cypress/e2e/ui/**/*.cy.js\"",
+    "test": "npm run cy:run:all"
   },
   "keywords": [],
   "author": "",
