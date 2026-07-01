@@ -14,3 +14,4 @@
 // ***********************************************************
 
 import './commands/api/index'
+import './commands/ui/index'
