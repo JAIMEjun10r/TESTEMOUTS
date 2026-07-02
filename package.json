@@ -9,6 +9,14 @@
     "cy:run:all": "cypress run --browser electron",
     "cy:run:api": "cypress run --browser electron --spec \"cypress/e2e/api/**/*.cy.js\"",
     "cy:run:ui": "cypress run --browser electron --spec \"cypress/e2e/ui/**/*.cy.js\"",
+    "cy:run:allure": "cypress run --browser electron --config-file cypress.allure.config.js",
+    "cy:run:api:allure": "cypress run --browser electron --config-file cypress.allure.config.js --spec \"cypress/e2e/api/**/*.cy.js\"",
+    "cy:run:ui:allure": "cypress run --browser electron --config-file cypress.allure.config.js --spec \"cypress/e2e/ui/**/*.cy.js\"",
+    "allure:report": "allure generate allure-results --clean -o allure-report",
+    "allure:open": "allure open allure-report",
+    "report:allure": "npm run cy:run:allure && npm run allure:report",
+    "report:allure:api": "npm run cy:run:api:allure && npm run allure:report",
+    "report:allure:ui": "npm run cy:run:ui:allure && npm run allure:report",
     "test": "npm run cy:run:all"
   },
   "keywords": [],
@@ -16,6 +24,8 @@
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
+    "allure-commandline": "^2.43.0",
+    "allure-cypress": "^3.10.2",
     "cypress": "^15.18.0"
   }
 }

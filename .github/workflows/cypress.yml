@@ -25,8 +25,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run API tests
-        run: npm run cy:run:api
+      - name: Generate API Allure report
+        run: npm run report:allure:api
         env:
           CYPRESS_adminEmail: fulano@qa.com
           CYPRESS_adminPassword: teste
@@ -37,6 +37,14 @@ jobs:
         with:
           name: api-screenshots
           path: cypress/screenshots
+          if-no-files-found: ignore
+
+      - name: Upload API Allure report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-allure-report
+          path: allure-report
           if-no-files-found: ignore
 
   ui-tests:
@@ -56,8 +64,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run UI tests
-        run: npm run cy:run:ui
+      - name: Generate UI Allure report
+        run: npm run report:allure:ui
         env:
           CYPRESS_adminEmail: fulano@qa.com
           CYPRESS_adminPassword: teste
@@ -68,4 +76,12 @@ jobs:
         with:
           name: ui-screenshots
           path: cypress/screenshots
+          if-no-files-found: ignore
+
+      - name: Upload UI Allure report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-allure-report
+          path: allure-report
           if-no-files-found: ignore

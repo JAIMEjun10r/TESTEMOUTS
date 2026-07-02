@@ -3,6 +3,8 @@ node_modules/
 cypress/screenshots/
 cypress/videos/
 cypress/downloads/
+allure-results/
+allure-report/
 
 Senior QA Test (3) (1).pdf
 front-main.js
