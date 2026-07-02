@@ -50,7 +50,7 @@ describe('ServeRest API - Produtos', () => {
     })
   })
 
-  it('deve cadastrar produto com um usuario administrador', () => {
+  it('deve cadastrar produto com um usuário administrador', () => {
     getAdminCredentials().then((adminCredentials) => {
       cy.apiLogin(adminCredentials).then(({ body: loginBody }) => {
         cy.apiCreateProduct(loginBody.authorization, buildProductPayload()).then(({ status, body }) => {
@@ -67,7 +67,7 @@ describe('ServeRest API - Produtos', () => {
     })
   })
 
-  it('deve rejeitar cadastro de produto com token invalido', () => {
+  it('deve rejeitar cadastro de produto com token inválido', () => {
     cy.apiCreateProduct('Bearer token-invalido', buildProductPayload(), {
       failOnStatusCode: false,
     }).then(({ status, body }) => {

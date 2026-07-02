@@ -11,7 +11,7 @@ describe('ServeRest API - Login', () => {
     })
   })
 
-  it('deve rejeitar login com senha invalida', () => {
+  it('deve rejeitar login com senha inválida', () => {
     getAdminCredentials().then((adminCredentials) => {
       cy.apiLogin(
         {
@@ -23,7 +23,7 @@ describe('ServeRest API - Login', () => {
         },
       ).then(({ status, body }) => {
         expect(status).to.eq(401)
-        expect(body.message).to.eq('Email e/ou senha inv\u00e1lidos')
+        expect(body.message).to.eq('Email e/ou senha inválidos')
       })
     })
   })

@@ -3,7 +3,7 @@ describe('ServeRest UI - Login', () => {
     cy.clearLocalStorage()
   })
 
-  it('deve redirecionar usuario nao autenticado para a tela de login', () => {
+  it('deve redirecionar usuário não autenticado para a tela de login', () => {
     cy.uiVisit('/admin/home')
 
     cy.location('pathname').should('eq', '/login')
@@ -26,7 +26,7 @@ describe('ServeRest UI - Login', () => {
     cy.getByTestId('password').should('be.visible')
   })
 
-  it('deve exibir mensagem de erro ao tentar login com senha invalida', () => {
+  it('deve exibir mensagem de erro ao tentar login com senha inválida', () => {
     cy.uiVisit('/login')
 
     cy.getByTestId('email').type('fulano@qa.com')
@@ -37,7 +37,7 @@ describe('ServeRest UI - Login', () => {
     cy.location('pathname').should('eq', '/login')
   })
 
-  it('deve exibir mensagem de erro ao tentar login com email invalido', () => {
+  it('deve exibir mensagem de erro ao tentar login com email inválido', () => {
     cy.uiVisit('/login')
 
     cy.getByTestId('email').type('inexistente@qa.com')

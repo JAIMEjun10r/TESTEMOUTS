@@ -1,4 +1,4 @@
-describe('ServeRest API - Usuarios', () => {
+describe('ServeRest API - Usuários', () => {
   const defaultUser = {
     id: '0uxuPY0cbmQhpEz1',
     nome: 'Fulano da Silva',
@@ -6,7 +6,7 @@ describe('ServeRest API - Usuarios', () => {
     administrador: 'true',
   }
 
-  it('deve listar os usuarios cadastrados', () => {
+  it('deve listar os usuários cadastrados', () => {
     cy.apiListUsers().then(({ status, body }) => {
       const user = body.usuarios.find(({ _id }) => _id === defaultUser.id)
 
@@ -20,7 +20,7 @@ describe('ServeRest API - Usuarios', () => {
     })
   })
 
-  it('deve buscar um usuario existente por id', () => {
+  it('deve buscar um usuário existente por id', () => {
     cy.apiGetUserById(defaultUser.id).then(({ status, body }) => {
       expect(status).to.eq(200)
       expect(body).to.include({
@@ -32,7 +32,7 @@ describe('ServeRest API - Usuarios', () => {
     })
   })
 
-  it('deve filtrar usuarios por email', () => {
+  it('deve filtrar usuários por email', () => {
     cy.apiListUsers({ email: defaultUser.email }).then(({ status, body }) => {
       expect(status).to.eq(200)
       expect(body.quantidade).to.eq(1)
@@ -44,7 +44,7 @@ describe('ServeRest API - Usuarios', () => {
     })
   })
 
-  it('deve rejeitar busca de usuario com id invalido', () => {
+  it('deve rejeitar busca de usuário com id inválido', () => {
     cy.apiGetUserById('id-invalido', {
       failOnStatusCode: false,
     }).then(({ status, body }) => {

@@ -30,7 +30,7 @@ describe('ServeRest API - Carrinhos', () => {
     })
   })
 
-  it('deve rejeitar busca de carrinho com id invalido', () => {
+  it('deve rejeitar busca de carrinho com id inválido', () => {
     cy.apiGetCartById('id-invalido', {
       failOnStatusCode: false,
     }).then(({ status, body }) => {

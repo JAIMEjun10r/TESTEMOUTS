@@ -6,7 +6,7 @@ describe('ServeRest UI - Admin', () => {
     cy.location('pathname').should('eq', '/admin/home')
   })
 
-  it('deve navegar para cadastro de usuarios pela navbar', () => {
+  it('deve navegar para cadastro de usuários pela navbar', () => {
     cy.uiGoToAdminSection('cadastrar-usuarios')
 
     cy.location('pathname').should('eq', '/admin/cadastrarusuarios')
@@ -17,7 +17,7 @@ describe('ServeRest UI - Admin', () => {
     cy.getByTestId('cadastrarUsuario').should('be.visible')
   })
 
-  it('deve navegar para listagem de usuarios pela navbar', () => {
+  it('deve navegar para listagem de usuários pela navbar', () => {
     cy.uiGoToAdminSection('listar-usuarios')
 
     cy.location('pathname').should('eq', '/admin/listarusuarios')
@@ -54,7 +54,7 @@ describe('ServeRest UI - Admin', () => {
     cy.getByTestId('entrar').should('be.visible')
   })
 
-  it('deve bloquear acesso a rota administrativa apos logout', () => {
+  it('deve bloquear acesso à rota administrativa após logout', () => {
     cy.uiLogout()
     cy.uiVisit('/admin/listarprodutos')
 
